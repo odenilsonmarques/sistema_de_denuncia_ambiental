@@ -1,0 +1,154 @@
+body
+{
+    font-family: 'Roboto', sans-serif;
+    background-color: none;
+}
+.navbar a.navbar-brand 
+{
+    color:  #6c63ff;
+    font-weight: bold;   
+    font-size: 21px;
+}
+.navbar a.navbar-brand:hover
+{
+    color: #6c63ff;
+}
+.navbar-expand-sm .navbar-nav > li > a {
+    font-size: 16px;
+    margin-top: 12px;
+    font-weight: bold;   
+}
+.navbar-expand-sm .navbar-nav .nav-link{
+    color:  #6c63ff;
+}
+.navbar-expand-sm .navbar-nav .nav-link:hover{
+    color: #6c63ff;
+    text-decoration: underline;
+}
+.dropdown-menu .dropdown-item{
+    color: #064635;
+    font-weight: bold;
+}
+button a
+{
+    text-decoration:none;
+    color:#FFF;
+}
+h1{
+    font-size: 25px;
+    font-weight: bold;
+}
+table th
+{
+    color:#FFF;
+}
+
+.btn-outline-secondary
+{
+    font-size:15px;
+}
+
+.card-body .card-title
+{
+    
+    font-weight: bold;
+}
+
+.card-body .number
+{
+    font-size:35px;
+    font-weight: bold;
+}
+
+.card-body p
+{
+    font-size:18px;
+    /* font-weight: bold; */
+}
+
+tr.text
+{
+    /* text-align:center; */
+    color: #FFFFFF;
+}
+tr.lineRed
+{
+    /* text-align:center; */
+    color: #DC143C;
+}
+tr.lineDark
+{
+    /* text-align:center; */
+    color: #111;
+}
+
+.navbar a, x-responsive-nav-link
+{
+    font-size: 16px;
+    margin-top: 12px;
+    font-weight: bold; 
+}
+
+.container.hero 
+{
+    animation: fadeInLeft 2s;
+    
+}
+.textHero h1 
+{
+    font-size:40px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 1px;
+    text-align: left;
+}
+.textHero p {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+}
+
+span
+{
+    color: #6c63ff;
+    font-weight: bold;
+}
+
+/* css padão para aplicação do efeito de transação */
+@keyframes fadeInLeft
+{
+    0%{
+        opacity:0;
+        /* translateX reposiciona um elemento na direção horizontal e/ou vertical */
+        -webkit-transform:translateX(-100px); 
+        -ms-transform:translateX(-100px);
+        transform:translateX(-100px)}
+    100%{
+        opacity:1;
+        -webkit-transform:translateX(0);
+        -ms-transform:translateX(0);
+        transform:translateX(0)
+    }
+}
+
+.container-fluid
+{
+    background-color: #6c63ff;
+}
+
+.card-header
+{
+    background-color: #6c63ff;
+    color: #fff;
+}
+
+.navbar-nav .nav-link {
+    /* padding-right: 0.7rem; */
+    margin-left: 15px;
+    
+}
+
+.inputSearch{
+    margin-right:3px;
+}
