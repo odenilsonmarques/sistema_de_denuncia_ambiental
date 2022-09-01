@@ -11,4 +11,9 @@ class DenunciationController extends Controller
     {
         return view('denunciation.choicePage');
     }
+    //funcao para chamar a pagina de cadastro de denuncia anonima
+    public function create()
+    {
+        return view('denunciation.addDenunciationAnonymous');
+    }
 }
