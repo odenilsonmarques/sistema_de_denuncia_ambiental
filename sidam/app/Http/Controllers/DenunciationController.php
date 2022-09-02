@@ -16,4 +16,8 @@ class DenunciationController extends Controller
     {
         return view('denunciation.addDenunciationAnonymous');
     }
+    public function createAction(Request $request)
+    {
+        dd($request->all());
+    }
 }

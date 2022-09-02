@@ -19,6 +19,7 @@ Route::get('/', [HomeController::class,'home'])->name('homePage');
 Route::get('/typeDenunciation',[DenunciationController::class,'choice'])->name('typeDenunciation.choice');
 
 Route::get('/denunciation/anonymous',[DenunciationController::class,'create'])->name('denunciatoin.anonymous');
+Route::post('/denunciation/action',[DenunciationController::class,'createAction'])->name('denunciation.createAction');
 
 // Route::get('/', function () {
 //     return view('welcome');
