@@ -18,12 +18,12 @@ return new class extends Migration
             $table->string('category');
             $table->string('distric');
             $table->string('road');
-            $table->string('number');
-            $table->string('reference_point');
-            $table->string('violator');
+            $table->string('number')->nullable();
+            $table->string('reference_point')->nullable();
+            $table->string('violator')->nullable();
             $table->string('annex_one');
-            $table->string('annex_two');
-            $table->string('annex_three');
+            $table->string('annex_two')->nullable();
+            $table->string('annex_three')->nullable();
             $table->string('description');
             $table->timestamps();
         });

@@ -5,27 +5,39 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-4 text-center mt-5 ">
-            teste
+        <div class="col-sm-4 mt-5 ">
+            <p class="text-center">Os campos com asterisco(*) são obrigatórios</p>
+            {{-- <img src="{{asset('assets/img/megaphone-fill.svg')}}" alt="megaphone"> --}}
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li class="justify-content-between align-items-left">
+                                {{$error}}<br/>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
         <div class="col-sm-8 mt-5 ">
             <div class="card">
-                <form action="{{route('denunciation.createAction')}}" method="POST">
+                <form action="{{route('denunciation.createAction')}}" method="POST" enctype="multipart/form-data">
                     @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
                     <div class="card-header">CATEGORIA</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <label for="category">Selecione</label>
-                                <select name="category" id="category" class="form-select" autofocus>
+                                <label for="category" class="required">Selecione</label>
+                                <select name="category" id="category" class="form-select" required  autofocus>
                                     <option value="">----Selecione----</option>
-                                    <option value="Agua">Agua </option>
-                                    <option value="Ar">Ar</option>
-                                    <option value="Fauna">Fauna</option>
-                                    <option value="Fogo">Fogo</option>
-                                    <option value="Ruído">Ruído</option>
-                                    <option value="Solo">Solo</option>
-                                    <option value="Vegetacao">Vegetacao</option>
+                                    <option value="Agua" @if(old('category') == "Agua") {{'selected'}} @endif>Agua</option>
+                                    <option value="Ar" @if(old('category') == "Ar") {{'selected'}} @endif >Ar</option>
+                                    <option value="Fauna" @if(old('category') == "Fauna") {{'selected'}} @endif>Fauna</option>
+                                    <option value="Fogo" @if(old('category') == "Fogo") {{'selected'}} @endif>Fogo</option>
+                                    <option value="Ruido" @if(old('category') == "Ruido") {{'selected'}} @endif>Ruído</option>
+                                    <option value="Solo" @if(old('category') == "Solo") {{'selected'}} @endif>Solo</option>
+                                    <option value="Vegetacao" @if(old('category') == "Vegetacao") {{'selected'}} @endif>Vegetacao</option>
                                 </select>
                             </div>
                         </div>
@@ -34,12 +46,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4">
-                                <label for="distric">Bairro</label>
-                                <input type="text" name="distric" class="form-control"  maxlength="30" placeholder="">
+                                <label for="distric" class="required">Bairro</label>
+                                <input type="text" name="distric" value="{{old('distric')}}" class="form-control" min="2" maxlength="30" required placeholder="">
                             </div>
                             <div class="col-sm-8">
-                                <label for="road">Rua</label>
-                                <input type="text" name="road" class="form-control"  maxlength="30" placeholder="">
+                                <label for="road" class="required">Rua</label>
+                                <input type="text" name="road" value="{{old('road')}}" class="form-control"  maxlength="30" required placeholder="">
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -58,32 +70,32 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <label for="violator">Provável autor do dano</label>
-                                <input type="text" name="distric" class="form-control"  maxlength="30" placeholder="">
+                                <input type="text" name="violator" class="form-control"  maxlength="30" placeholder="">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-sm-4">
-                                <label for="annex_one">Anexo um</label>
-                                <input type="file" name="annex_one" class="form-control"  maxlength="30" placeholder="">
+                                <label for="annex_one" class="required">Anexo um</label>
+                                <input type="file" name="annex_one" class="form-control"  maxlength="30" required placeholder="">
                             </div>
                             <div class="col-sm-4">
-                                <label for="annex_one">Anexo dois</label>
+                                <label for="annex_tow">Anexo dois</label>
                                 <input type="file" name="annex_two" class="form-control"  maxlength="30" placeholder="">
                             </div>
                             <div class="col-sm-4">
-                                <label for="annex_one">Anexo tres</label>
+                                <label for="annex_three">Anexo tres</label>
                                 <input type="file" name="annex_three" class="form-control"  maxlength="30" placeholder="">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-sm-12">
-                                <label for="description">Descrição</label>
-                                <textarea class="form-control" name="description" id="" rows="2"></textarea>
+                                <label for="description" class="required">Descrição</label>
+                                <textarea class="form-control" value="{{old('description')}}" name="description" id="" required rows="2">{{old('description')}}</textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 mt-4">
-                                <button class="btn btn-danger"><a href="">CANCELAR </a></button>
+                                <button class="btn btn-danger"><a href="{{route('typeDenunciation.choice')}}">CANCELAR </a></button>
                                 <button type="submit" class="btn btn-success">CADASTRAR</button>
                             </div>
                         </div>

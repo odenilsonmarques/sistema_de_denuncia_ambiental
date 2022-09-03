@@ -152,3 +152,9 @@ span
 .inputSearch{
     margin-right:3px;
 }
+
+/* adicionando um asterisco aos campos obrigatórios */
+.required:after {
+    content:" *"; 
+    color: red;
+  }

@@ -24,3 +24,5 @@ Route::post('/denunciation/action',[DenunciationController::class,'createAction'
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+

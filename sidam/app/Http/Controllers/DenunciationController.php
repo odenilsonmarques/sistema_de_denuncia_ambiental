@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\DenunciationAnonymou;
+use App\Http\Requests\StoreDenunciationAnonymousFromRequest;
 use Illuminate\Http\Request;
 
 class DenunciationController extends Controller
@@ -16,8 +17,26 @@ class DenunciationController extends Controller
     {
         return view('denunciation.addDenunciationAnonymous');
     }
-    public function createAction(Request $request)
+    public function createAction(StoreDenunciationAnonymousFromRequest $request)
     {
-        dd($request->all());
+        // dd($request->annex_one);
+        
+        $data = $request->all();
+        if($request->annex_one)
+        {
+            $data['annex_one'] = $request->annex_one->store('/img');
+        }
+        if($request->annex_two)
+        {
+            $data['annex_two'] = $request->annex_two->store('/img');
+        }
+        if($request->annex_three)
+        {
+            $data['annex_three'] = $request->annex_three->store('/img');
+        }
+        DenunciationAnonymou::create($data);
+
+        return redirect()->route('typeDenunciation.choice');
+
     }
 }
