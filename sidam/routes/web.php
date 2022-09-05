@@ -18,8 +18,14 @@ Route::get('/', [HomeController::class,'home'])->name('homePage');
 
 Route::get('/typeDenunciation',[DenunciationController::class,'choice'])->name('typeDenunciation.choice');
 
-Route::get('/denunciation/anonymous',[DenunciationController::class,'create'])->name('denunciatoin.anonymous');
-Route::post('/denunciation/action',[DenunciationController::class,'createAction'])->name('denunciation.createAction');
+Route::get('/denunciation',[DenunciationController::class,'add'])->name('denunciation.add');
+Route::post('/denunciation/create',[DenunciationController::class,'create'])->name('denunciation.create');
+Route::get('/denunciation/message',[DenunciationController::class,'msg'])->name('denunciation.msg');
+
+//somente adm podem ver
+Route::get('/denunciation/list',[DenunciationController::class,'list'])->name('denunciation.list');
+
+Route::get('denunciaation/details/{id}',[DenunciationController::class,'details'])->name('denunciation.details');
 
 // Route::get('/', function () {
 //     return view('welcome');

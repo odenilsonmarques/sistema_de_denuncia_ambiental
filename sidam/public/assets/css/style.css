@@ -42,7 +42,13 @@ table th
 {
     color:#FFF;
 }
-
+table thead{
+    background-color: #BBBFCA;
+   
+}
+table th{
+    color:#495464;
+}
 .btn-outline-secondary
 {
     font-size:15px;

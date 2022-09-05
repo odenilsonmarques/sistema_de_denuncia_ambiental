@@ -13,14 +13,12 @@ class DenunciationController extends Controller
         return view('denunciation.choicePage');
     }
     //funcao para chamar a pagina de cadastro de denuncia anonima
-    public function create()
+    public function add()
     {
-        return view('denunciation.addDenunciationAnonymous');
+        return view('denunciation.add');
     }
-    public function createAction(StoreDenunciationAnonymousFromRequest $request)
+    public function create(StoreDenunciationAnonymousFromRequest $request)
     {
-        // dd($request->annex_one);
-        
         $data = $request->all();
         if($request->annex_one)
         {
@@ -36,6 +34,27 @@ class DenunciationController extends Controller
         }
         DenunciationAnonymou::create($data);
 
-        return redirect()->route('typeDenunciation.choice');
+        return redirect()->route('denunciation.msg');
+    }
+
+    public function msg()
+    {
+        return view('denunciation.msg');
+    }
+
+    public function list(Request $request)
+    {
+        $listAnonymous = DenunciationAnonymou::all();
+        // dd($listAnonymous);
+        return view('denunciation.list',['listAnonymous' => $listAnonymous]);
+    }
+    public function details($id)
+    {
+        $data = DenunciationAnonymou::find($id);
+        if($data){
+            return view('denunciation.details',['data' => $data]);
+        }else{
+            return redirect()->back();
+        }
     }
 }

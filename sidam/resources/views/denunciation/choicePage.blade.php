@@ -14,7 +14,7 @@
                 <h6>ainda não possui uma conta, cadastre-se</h6>
             </div>
             <div class="col-sm-4 text-center mt-5">
-                <a href="{{route('denunciatoin.anonymous')}}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a href="{{route('denunciation.add')}}" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <h2>Denuncia Anônima</h2>
                     <h6>você pode optar pela denúncia Anônima</h6>
                 </a>
@@ -31,7 +31,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary"><a href="{{route('denunciatoin.anonymous')}}">Continuar</a> </button>
+                            <button type="button" class="btn btn-primary"><a href="{{route('denunciation.add')}}">Continuar</a> </button>
                         </div>
                     </div>
                 </div>

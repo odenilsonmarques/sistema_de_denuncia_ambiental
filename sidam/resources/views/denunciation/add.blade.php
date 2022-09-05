@@ -9,7 +9,7 @@
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Atenção<br></strong> Todos os campos com (*) são obrigatórios.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
+            </div>
             {{-- <img src="{{asset('assets/img/megaphone-fill.svg')}}" alt="megaphone"> --}}
             @if($errors->any())
                 <div class="alert alert-danger">
@@ -25,7 +25,7 @@
         </div>
         <div class="col-sm-9 mt-5 ">
             <div class="card">
-                <form action="{{route('denunciation.createAction')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('denunciation.create')}}" method="POST" enctype="multipart/form-data">
                     @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
                     <div class="card-header">CATEGORIA DA DENUNCIA</div>
                     <div class="card-body">
