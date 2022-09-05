@@ -37,6 +37,5 @@ class DenunciationController extends Controller
         DenunciationAnonymou::create($data);
 
         return redirect()->route('typeDenunciation.choice');
-
     }
 }

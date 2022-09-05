@@ -50,8 +50,8 @@ class StoreDenunciationAnonymousFromRequest extends FormRequest
 
             'annex_one.required'=>'O campo anexo um é obrigatório',
             'annex_one.image'=>'O campo anexo um deve ser uma imagem',
-            
-            'annex_two.nullable.image'=>'O campo anexo dois deve ser uma imagem',
+            'annex_two.image'=>'O campo anexo dois deve ser uma imagem',
+            'annex_three.image'=>'O campo anexo três deve ser uma imagem',
             
             'description.required'=>'O campo descrição é obrigatório',
             'description.min'=>'O campo descrição deve ter no mínimo 3 caractres',
