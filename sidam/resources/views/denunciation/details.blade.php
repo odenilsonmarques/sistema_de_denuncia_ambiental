@@ -25,11 +25,13 @@
                     @if($data->violator)
                         <li class="list-group-item"><strong>Provável Infrator: </strong>{{$data->violator}}</li>
                     @else
-                        <li  class="list-group-item">Infrator: Não identificado</li>
+                        <li  class="list-group-item"><strong>Provável Infrator: </strong> Não identificado</li>
                     @endif
                     <li class="list-group-item list-group-item-dark" aria-current="true">Descrição</li>
                     <li class="list-group-item">{{$data->description}}</li>
+                  
                 </ul>
+
             </div>
 
             <div class="col-sm-5">
@@ -41,12 +43,20 @@
                             <img src="{{asset('storage/'.$data->annex_two)}}" class="img-thumbnail" alt="anexo dois" width="136" height="100" >
                             <img src="{{asset('storage/'.$data->annex_three)}}" class="img-thumbnail" alt="anexo tres" width="136" height="100" >
                         @else
-                            <img class="img-thumbnail"  width="136" height="100" >
-                            <img  class="img-thumbnail"  width="136" height="100" >
+                            {{-- <img class="img-thumbnail" width="136" height="100">
+                            <img class="img-thumbnail"  width="136" height="100"> --}}
                         @endif
-
                     </div>
+
+                    <li class="list-group-item list-group-item-dark" aria-current="true">Status</li>
+                    <select name="status" id="" class="form-select">
+                        <option value="">--- Selecione ---</option>
+                        <option value="Deferir">Deferir</option>
+                        <option value="Indeferir">Indeferir</option>
+                     </select>
                 </ul>
+
+                
             </div>
         </div>
     </div>

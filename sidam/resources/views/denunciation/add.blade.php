@@ -97,6 +97,11 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm-12">
+                                <input type="hidden" name="received" value="Recebida" class="form-control"  maxlength="30" placeholder="">
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6 mt-4">
                                 <button class="btn btn-danger"><a href="{{route('typeDenunciation.choice')}}">CANCELAR </a></button>
                                 <button type="submit" class="btn btn-success">CADASTRAR</button>
