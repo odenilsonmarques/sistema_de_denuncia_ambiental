@@ -166,3 +166,8 @@ span
     content:" *"; 
     color: red;
   }
+
+ .list-group-item-dark{
+    color:#495464;
+    font-weight:bold;
+  }
