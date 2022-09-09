@@ -29,9 +29,17 @@
                     @endif
                     <li class="list-group-item list-group-item-dark" aria-current="true">Descrição</li>
                     <li class="list-group-item">{{$data->description}}</li>
-                  
-                </ul>
+                    <li class="list-group-item list-group-item-dark" aria-current="true">Status: <button type="button" class="btn btn-success btn-sm">{{$data->received}}</button></li>
+                    
+                    @if($data->description_status)
+                    <li class="list-group-item list-group-item-dark" aria-current="true">Motivo do status</li>
+                    <li class="list-group-item">{{$data->description_status}}</li>
+                    @else
+                    @endif
+                    
+                    <a href="{{route('denunciation.edit',$data->id)}}" class="btn btn-primary btn-sm text-right mt-2">Alterar Status</a>
 
+                </ul>
             </div>
 
             <div class="col-sm-5">
@@ -47,16 +55,14 @@
                             <img class="img-thumbnail"  width="136" height="100"> --}}
                         @endif
                     </div>
-
-                    <li class="list-group-item list-group-item-dark" aria-current="true">Status</li>
+                    {{-- <li class="list-group-item list-group-item-dark mt-3" aria-current="true">Status</li>
                     <select name="status" id="" class="form-select">
                         <option value="">--- Selecione ---</option>
                         <option value="Deferir">Deferir</option>
                         <option value="Indeferir">Indeferir</option>
-                     </select>
+                     </select> --}}
                 </ul>
 
-                
             </div>
         </div>
     </div>

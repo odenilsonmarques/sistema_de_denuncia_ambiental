@@ -25,8 +25,10 @@ Route::get('/denunciation/message',[DenunciationController::class,'msg'])->name(
 //somente adm podem ver
 Route::get('/denunciation/list',[DenunciationController::class,'list'])->name('denunciation.list');
 
-Route::get('denunciaation/details/{id}',[DenunciationController::class,'details'])->name('denunciation.details');
+Route::get('/denunciation/details/{id}',[DenunciationController::class,'details'])->name('denunciation.details');
 
+Route::get('/denunciation/{id}/edit',[DenunciationController::class,'edit'])->name('denunciation.edit');
+Route::put('/denunciation/{id}',[DenunciationController::class,'editAction'])->name('denunciation.editAction');
 // Route::get('/', function () {
 //     return view('welcome');
 // });

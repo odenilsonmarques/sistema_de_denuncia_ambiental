@@ -93,12 +93,12 @@
                         <div class="row mt-3">
                             <div class="col-sm-12">
                                 <label for="description" class="required">Descrição</label>
-                                <textarea class="form-control" value="{{old('description')}}" name="description" id="" rows="2" required>{{old('description')}}</textarea>
+                                <textarea class="form-control" name="description" id="" rows="2" required>{{old('description')}}</textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <input type="hidden" name="received" value="Recebida" class="form-control"  maxlength="30" placeholder="">
+                                <input type="hidden" name="received" value="Recebida" readonly class="form-control"  maxlength="30" placeholder="" required>
                             </div>
                         </div>
                         <div class="row">

@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('annex_two')->nullable();
             $table->string('annex_three')->nullable();
             $table->string('description');
+            $table->string('received');
+            $table->string('description_status')->nullable();
             $table->timestamps();
         });
     }

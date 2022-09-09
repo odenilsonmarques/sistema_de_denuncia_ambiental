@@ -57,4 +57,30 @@ class DenunciationController extends Controller
             return redirect()->back();
         }
     }
+
+    public function edit($id)
+    {
+        $data = DenunciationAnonymou::find($id);
+        if($data){
+            return view('denunciation.edit',['data' => $data]);
+        }else{
+            return redirect()->back();
+        }
+    }
+    public function editAction(Request $request, $id)
+    {
+        $data = DenunciationAnonymou::find($id);
+        if($data){
+            $denunciation = $request->only('received', 'description_status');
+            $data -> update($denunciation);
+            return view('denunciation.details',['data' => $data]);
+        }else{
+            return redirect()->back();
+        }
+            
+
+            
+            // ->with('messageEdit', 'Lancamento alterado com sucesso!');
+
+    }
 }

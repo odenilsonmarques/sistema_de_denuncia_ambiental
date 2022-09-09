@@ -21,6 +21,8 @@ class DenunciationAnonymou extends Model
         'annex_two',
         'annex_three',
         'description',
+        'received',
+        'description_status',
 
     ];
 }
