@@ -7,12 +7,7 @@ use Illuminate\Http\Request;
 
 class DenunciationController extends Controller
 {
-    //funcao para chamar a pagina onde o usuario vai selecionar a opção do tipo de denuncia
-    public function choice()
-    {
-        return view('denunciation.choicePage');
-    }
-    //funcao para chamar a pagina de cadastro de denuncia anonima
+    //exibe página de cadastro de denúncia anônima
     public function add()
     {
         return view('denunciation.add');
@@ -36,33 +31,21 @@ class DenunciationController extends Controller
 
         return redirect()->route('denunciation.msg');
     }
-
-    public function msg()
-    {
-        return view('denunciation.msg');
-    }
-
+    //exibe de denúncia anônima
     public function list(Request $request)
     {
         $listAnonymous = DenunciationAnonymou::all();
         // dd($listAnonymous);
         return view('denunciation.list',['listAnonymous' => $listAnonymous]);
     }
-    public function details($id)
-    {
-        $data = DenunciationAnonymou::find($id);
-        if($data){
-            return view('denunciation.details',['data' => $data]);
-        }else{
-            return redirect()->back();
-        }
-    }
-
+    //exibe form de edição da denuncia
     public function edit($id)
     {
+        // chamo esse array para capturar o campo escolhido através da logica implementada no form de edição. Poderia ser apenas uma select com options declarados no form de edicão, mas esse recurso me permite capturar o campo option selecionado optei por usa-lo, porem deve ter outras formas, essa forma serve para formularios de cadastros... 
+        $typeStatus = ['Em Análise', 'Deferida', 'Indeferida'];
         $data = DenunciationAnonymou::find($id);
         if($data){
-            return view('denunciation.edit',['data' => $data]);
+            return view('denunciation.edit',compact('data','typeStatus'));
         }else{
             return redirect()->back();
         }
@@ -73,14 +56,11 @@ class DenunciationController extends Controller
         if($data){
             $denunciation = $request->only('received', 'description_status');
             $data -> update($denunciation);
-            return view('denunciation.details',['data' => $data]);
+            return redirect()->route('denunciation.details',$id)
+            // return view('denunciation.details',['data' => $data]);
+            ->with('messageEd', 'Statud alterado com sucesso!');
         }else{
             return redirect()->back();
         }
-            
-
-            
-            // ->with('messageEdit', 'Lancamento alterado com sucesso!');
-
     }
 }
