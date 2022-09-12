@@ -1,11 +1,11 @@
 body
 {
     font-family: 'Roboto', sans-serif;
-    background-color: none;
+    background-color: #F4F4F2;
 }
 .navbar a.navbar-brand 
 {
-    color:  #6c63ff;
+    color:  #FEFFDE;
     font-weight: bold;   
     font-size: 21px;
 }
@@ -19,7 +19,7 @@ body
     font-weight: bold;   
 }
 .navbar-expand-sm .navbar-nav .nav-link{
-    color:  #6c63ff;
+    color:  #FEFFDE;
 }
 .navbar-expand-sm .navbar-nav .nav-link:hover{
     color: #6c63ff;
@@ -42,7 +42,13 @@ table th
 {
     color:#FFF;
 }
-
+table thead{
+    background-color: #BBBFCA;
+   
+}
+table th{
+    color:#495464;
+}
 .btn-outline-secondary
 {
     font-size:15px;
@@ -139,8 +145,10 @@ span
 
 .card-header
 {
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: #BBBFCA;
+    color: #495464;
+    font-weight: bold;
+
 }
 
 .navbar-nav .nav-link {
@@ -152,3 +160,14 @@ span
 .inputSearch{
     margin-right:3px;
 }
+
+/* adicionando um asterisco aos campos obrigatórios */
+.required:after {
+    content:" *"; 
+    color: red;
+  }
+
+ .list-group-item-dark{
+    color:#495464;
+    font-weight:bold;
+  }

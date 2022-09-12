@@ -10,10 +10,10 @@
 </head>
 <body>
     <header class="mb-5">
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#1A1A40">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#495464;">
             <div class="container">
                 <a class="navbar-brand" href="{{route('homePage')}}">
-                    Sidam
+                    Denuncia Ambiental
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>

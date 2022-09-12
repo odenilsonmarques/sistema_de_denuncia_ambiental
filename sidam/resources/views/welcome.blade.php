@@ -5,7 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 text-center mt-5" style="border:1px solid red">
-                Denunciar
+                <a href="{{route('typeDenunciation.choice')}}">Denunciar</a>
+                
             </div>
             <div class="col-sm-6 text-center mt-5"  style="border:1px solid red">
                 Acompanhar Denuncia
