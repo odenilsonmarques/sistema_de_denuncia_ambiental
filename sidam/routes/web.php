@@ -6,6 +6,7 @@ use App\Http\Controllers\DenunciationController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,4 @@ Route::put('/denunciation/{id}',[DenunciationController::class,'editAction'])->n
 //     return view('welcome');
 // });
 
-
+Route::get('/denunciation/listPdf',[PdfController::class,'list'])->name('denunciation.listPdf');
