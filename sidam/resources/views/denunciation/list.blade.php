@@ -19,8 +19,14 @@
                                 <option value="Solo">Solo</option>
                                 <option value="Vegetacao">Vegetacao</option>
                             </select>
+                            <select name="received" id="received" class="form-select  inputSearch">
+                                <option value="">--- Selecione o status---</option>
+                                <option value="Recebida">Recebida</option>
+                                <option value="Em Análise">Em Análise</option>
+                                <option value="Deferida">Deferida</option>
+                                <option value="Indeferida">Indeferida</option>
+                            </select>
                             <input type="text" name="distric" class="form-control inputSearch" placeholder="Bairro">
-                            <input type="date" name="created_at" class="form-control inputSearch">
                             <div class="input-group-append ml-3">
                               <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
                             </div>
@@ -28,7 +34,6 @@
                     </form>
                 </div>
             </div>
-
             <div class="col-lg-4 mt-5">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
                     <a href="{{route('denunciation.listPdf')}}" target="_blank" class="btn btn-primary" role="button">
@@ -41,15 +46,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
         <div class="row">
             <div class="col-sm-12 text-center mt-2">
                 
@@ -62,6 +58,7 @@
                                 <th>Bairro</th>
                                 <th>Rua</th>
                                 <th>Data</th>
+                                <th>Status</th>
                                 <th>Foto</th>
                                 <th>Detalhes</th>
                             </tr>
@@ -74,6 +71,7 @@
                                     <td>{{$denunciationAnonymou->distric}}</td>
                                     <td>{{$denunciationAnonymou->road}}</td>
                                     <td>{{date('d/m/Y',strtotime($denunciationAnonymou->created_at))}}</td>
+                                    <td>{{$denunciationAnonymou->received}}</td>
                                     <td><img src="{{asset('storage/'.$denunciationAnonymou->annex_one)}}" alt="produto" width="60" height="60" ></td>
                                     <td>
                                         <a href="{{route('denunciation.details', $denunciationAnonymou->id)}}" class="btn btn-primary btn-sm">
@@ -87,7 +85,11 @@
                         </tbody>
                     </table>
                     <div class="justify-content-center pagination">
-                        {{$denunciationAnonymous->links('pagination::bootstrap-4')}}
+                        @if(isset($dataForm))
+                            {{$denunciationAnonymous->appends($dataForm)->links('pagination::bootstrap-4')}}
+                        @else
+                            {{$denunciationAnonymous->links('pagination::bootstrap-4')}}
+                        @endif
                     </div>
                 </div>
             </div> 

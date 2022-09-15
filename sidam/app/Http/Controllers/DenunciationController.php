@@ -10,8 +10,6 @@ class DenunciationController extends Controller
     //definindo a quantidade de itens por pagination
     private $totalPage = 5;
 
-
-
     //exibe página de cadastro de denúncia anônima
     public function add()
     {
@@ -36,10 +34,6 @@ class DenunciationController extends Controller
 
         return redirect()->route('denunciation.msg');
     }
-
-
-
-
     //exibe de denúncia anônima
     public function list(DenunciationAnonymou $denunciationAnonymou)//passando o objeto, mas poderia ser de outra forma. Usando esse recurso pq vou precisar filtar 
     {
@@ -47,12 +41,6 @@ class DenunciationController extends Controller
         // dd($listAnonymous);
         return view('denunciation.list',compact('denunciationAnonymous'));
     }
-
-
-
-
-
-
 
     //exibe form de edição da denuncia
     public function edit($id)
