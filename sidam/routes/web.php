@@ -7,6 +7,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\FilterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::put('/denunciation/{id}',[DenunciationController::class,'editAction'])->n
 // });
 
 Route::get('/denunciation/listPdf',[PdfController::class,'list'])->name('denunciation.listPdf');
+
+Route::any('/search',[FilterController::class,'filter'])->name('search.filter');

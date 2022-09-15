@@ -23,6 +23,23 @@ class DenunciationAnonymou extends Model
         'description',
         'received',
         'description_status',
-
     ];
+
+    //logica para buscar os dados na filtragem
+    public function search(Array $search, $totalPage)
+    {
+        $listAnonymou = $this->where(function($query) use ($search){
+            if(isset($search['category'])){
+                $query->where('category', $search['category']);
+            }
+            if(isset($search['distric'])){
+                $query->where('distric', $search['distric']);
+            }
+            if(isset($search['received'])){
+                $query->where('received', $search['received']);
+            }
+        })
+        ->paginate($totalPage);
+        return $listAnonymou;
+    }
 }
