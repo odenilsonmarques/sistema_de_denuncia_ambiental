@@ -4,8 +4,33 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 text-center mt-5">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-2">
+            <div class="col-lg-8 mt-5">
+                <div class="input-group">
+                    <form action="{{route('search.filter')}}" method="POST" class="form-horizontal">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <select name="category" id="category" class="form-select  inputSearch">
+                                <option value="">--- Selecione a categoria---</option>
+                                <option value="Agua">Agua</option>
+                                <option value="Ar">Ar</option>
+                                <option value="Fauna">Fauna</option>
+                                <option value="Fogo">Fogo</option>
+                                <option value="Ruido">Ruido</option>
+                                <option value="Solo">Solo</option>
+                                <option value="Vegetacao">Vegetacao</option>
+                            </select>
+                            <input type="text" name="distric" class="form-control inputSearch" placeholder="Bairro">
+                            <input type="date" name="created_at" class="form-control inputSearch">
+                            <div class="input-group-append ml-3">
+                              <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-5">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
                     <a href="{{route('denunciation.listPdf')}}" target="_blank" class="btn btn-primary" role="button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
                             <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
@@ -14,6 +39,20 @@
                         Imprimir 
                     </a>
                 </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-sm-12 text-center mt-2">
+                
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
@@ -28,16 +67,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($listAnonymous as $listAnonymou)
+                            @foreach($denunciationAnonymous as $denunciationAnonymou)
                                 <tr>
-                                    <td>{{$listAnonymou->id}}</td>
-                                    <td>{{$listAnonymou->category}}</td>
-                                    <td>{{$listAnonymou->distric}}</td>
-                                    <td>{{$listAnonymou->road}}</td>
-                                    <td>{{date('d/m/Y',strtotime($listAnonymou->created_at))}}</td>
-                                    <td><img src="{{asset('storage/'.$listAnonymou->annex_one)}}" alt="produto" width="60" height="60" ></td>
+                                    <td>{{$denunciationAnonymou->id}}</td>
+                                    <td>{{$denunciationAnonymou->category}}</td>
+                                    <td>{{$denunciationAnonymou->distric}}</td>
+                                    <td>{{$denunciationAnonymou->road}}</td>
+                                    <td>{{date('d/m/Y',strtotime($denunciationAnonymou->created_at))}}</td>
+                                    <td><img src="{{asset('storage/'.$denunciationAnonymou->annex_one)}}" alt="produto" width="60" height="60" ></td>
                                     <td>
-                                        <a href="{{route('denunciation.details', $listAnonymou->id)}}" class="btn btn-primary btn-sm">
+                                        <a href="{{route('denunciation.details', $denunciationAnonymou->id)}}" class="btn btn-primary btn-sm">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                             </svg>
@@ -47,6 +86,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="justify-content-center pagination">
+                        {{$denunciationAnonymous->links('pagination::bootstrap-4')}}
+                    </div>
                 </div>
             </div> 
         </div>
