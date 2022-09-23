@@ -6,8 +6,10 @@
         <div class="row mt-5">
             <h1 class="text-center mt-5">Como deseja denunciar ?</h1>
             <div class="col-sm-4 text-center mt-5 ">
-                <h2>Acessando sua conta</h2>
-                <h6>caso ja tenha uma conta, clique aqui</h6>
+                <a href="{{route('denunciation.identification.add')}}">
+                    <h2>Acessando sua conta</h2>
+                    <h6>caso ja tenha uma conta, clique aqui</h6>
+                </a>
             </div>
             <div class="col-sm-4 text-center mt-5 ">
                 <h2>Criar conta</h2>
