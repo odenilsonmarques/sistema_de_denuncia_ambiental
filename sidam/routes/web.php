@@ -26,6 +26,10 @@ Route::get('/typeDenunciation',[ChoiceController::class,'choice'])->name('typeDe
 
 Route::get('/denunciation',[DenunciationAnonymouController::class,'add'])->name('denunciation.add');
 Route::post('/denunciation/create',[DenunciationAnonymouController::class,'create'])->name('denunciation.create');
+
+
+
+//route for display messsage with success
 Route::get('/denunciation/message',[MessageController::class,'msg'])->name('denunciation.msg');
 
 //somente adm podem ver
@@ -43,11 +47,18 @@ Route::get('/denunciation/listPdf',[PdfController::class,'list'])->name('denunci
 
 Route::any('/search',[FilterController::class,'filter'])->name('search.filter');
 
+Route::any('search/identification',[FilterController::class,'filterIdentification'])->name('search.identification');
+
+
+
 
 
 //routes for denunciation with identification
 Route::get('/denunciation/identification',[DenunciationIdentificationController::class,'add'])->name('denunciation.identification.add');
-Route::post('/denunciation/cria',[DenunciationIdentificationController::class,'create'])->name('denunciation.identification.create');
+Route::post('/denunciation/identification/create',[DenunciationIdentificationController::class,'create'])->name('denunciation.identification.create');
+
+Route::get('/denunciation/identification/list',[DenunciationIdentificationController::class,'list'])->name('denunciation.identification.list');
+
 
 
 

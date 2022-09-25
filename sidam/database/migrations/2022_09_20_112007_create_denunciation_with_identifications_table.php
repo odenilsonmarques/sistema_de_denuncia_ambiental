@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('denunciation_with_identifications', function (Blueprint $table) {
             $table->id();
-             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            //  $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
              $table->string('category');
              $table->string('distric');
              $table->string('road');
