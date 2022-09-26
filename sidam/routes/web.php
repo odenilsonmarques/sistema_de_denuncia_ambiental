@@ -47,10 +47,6 @@ Route::get('/denunciation/listPdf',[PdfController::class,'list'])->name('denunci
 
 Route::any('/search',[FilterController::class,'filter'])->name('search.filter');
 
-Route::any('search/identification',[FilterController::class,'filterIdentification'])->name('search.identification');
-
-
-
 
 
 //routes for denunciation with identification
@@ -59,7 +55,9 @@ Route::post('/denunciation/identification/create',[DenunciationIdentificationCon
 
 Route::get('/denunciation/identification/list',[DenunciationIdentificationController::class,'list'])->name('denunciation.identification.list');
 
+Route::any('search/identification',[FilterController::class,'filterIdentification'])->name('search.identification');
 
+Route::get('/denunciation/identification/details/{id}',[DetailController::class,'detailsIdentification'])->name('denunciation.detailsIdentification');
 
 
 
