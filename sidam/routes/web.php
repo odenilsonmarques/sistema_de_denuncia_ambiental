@@ -59,5 +59,7 @@ Route::any('search/identification',[FilterController::class,'filterIdentificatio
 
 Route::get('/denunciation/identification/details/{id}',[DetailController::class,'detailsIdentification'])->name('denunciation.detailsIdentification');
 
+Route::get('/denunciation/identitification/{id}/edit',[DenunciationIdentificationController::class,'edit'])->name('identification.edit');
+Route::put('/denunciation/identitification/{id}',[DenunciationIdentificationController::class,'editAction'])->name('identification.editAction');
 
 

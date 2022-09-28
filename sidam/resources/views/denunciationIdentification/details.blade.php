@@ -63,7 +63,6 @@
                      <li class="list-group-item list-group-item-dark mt-4" >Status: {{$data->received}}</li>
                     
                      @if($data->description_status)
-                       
                         <li class="list-group-item list-group-item-dark" aria-current="true">Motivo do status</li>
                         <li class="list-group-item">{{$data->description_status}}</li>
 
@@ -72,7 +71,7 @@
                      @else
                      @endif
                         <button class="btn btn-danger btn-sm mt-3"><a href="{{route('denunciation.identification.list')}}">CANCELAR</a></button>
-                        <a href="{{route('denunciation.edit',$data->id)}}" class="btn btn-primary btn-sm text-right mt-3">ALTERAR</a>
+                        <a href="{{route('identification.edit',$data->id)}}" class="btn btn-primary btn-sm text-right mt-3">ALTERAR</a>
                 </ul>
             </div>
         </div>

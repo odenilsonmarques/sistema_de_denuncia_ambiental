@@ -63,4 +63,27 @@ class DenunciationIdentificationController extends Controller
 
          return view('denunciationIdentification.list',compact('denunciationIdentifications'));
      }
+
+     public function edit($id)
+     {
+        // chamo esse array para capturar o campo escolhido através da logica implementada no form de edição. Poderia ser apenas uma select com options declarados no form de edicão, mas esse recurso me permite capturar o campo option selecionado optei por usa-lo, porem deve ter outras formas, essa forma serve para formularios de cadastros... 
+        $typeStatus = ['Em Análise', 'Deferida', 'Indeferida'];
+        $data = Denunciation_with_identification::find($id);
+        if($data){
+            return view('denunciationIdentification.edit',compact('data','typeStatus'));
+        }else{
+            return redirect()->back();
+        }
+     }
+
+     public function editAction(Request $request, $id)
+     {
+        $data = Denunciation_with_identification::find($id);
+        if($data){
+            $denunciationIdentification = $request->only('received', 'description_status');
+            $data -> update($denunciationIdentification);
+            return redirect()->route('denunciation.detailsIdentification',$id)
+            ->with('messageEd', 'Statud alterado com sucesso!');
+        }
+     }
 }
