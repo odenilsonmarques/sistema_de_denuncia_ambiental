@@ -22,8 +22,14 @@ class Denunciation_with_identification extends Model
         'description',
         'received',
         'description_status',
-        // 'user_id',
+        'user_id',
     ];
+
+    //metodo para relacionar uma ou mais Denunciation_with_identification com um único usuário
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     //logica para buscar os dados na filtragem
     public function search(Array $search, $totalPage)
