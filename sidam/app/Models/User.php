@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Denunciation_with_identification;
 
 class User extends Authenticatable
 {
@@ -41,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //metodo para relacioinar um usuario com uma ou mais Denunciation_with_identification
+    public function Denunciation_with_identifications() 
+    {
+        return $this->hasmany(Denunciation_with_identification::class);
+    }
 }

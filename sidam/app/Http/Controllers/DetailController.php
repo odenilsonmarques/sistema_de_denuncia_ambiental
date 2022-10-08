@@ -1,17 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\DenunciationAnonymou;
 use Illuminate\Http\Request;
+use App\Models\Denunciation_anonymou;
+use App\Models\Denunciation_with_identification;
 
 class DetailController extends Controller
 {
     //exibe os detalhes de cada denuncia
     public function details(Request $request, $id)
     {
-        $data = DenunciationAnonymou::find($id);
-        if($data){
+        $data = Denunciation_anonymou::find($id);
+        if($data)
+        {
             return view('denunciation.details',['data' => $data]);
+        }else{
+            return redirect()->back();
+        }
+    }
+
+    public function detailsIdentification(Request $request, $id)
+    {
+        $data = Denunciation_with_identification::find($id);
+        if($data){
+            return view('denunciationIdentification.details',['data' => $data]);
         }else{
             return redirect()->back();
         }

@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DenunciationAnonymou extends Model
+class Denunciation_with_identification extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-
         'category',
         'distric',
         'road',
@@ -23,12 +22,19 @@ class DenunciationAnonymou extends Model
         'description',
         'received',
         'description_status',
+        'user_id',
     ];
+
+    //metodo para relacionar uma ou mais Denunciation_with_identification com um único usuário
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     //logica para buscar os dados na filtragem
     public function search(Array $search, $totalPage)
     {
-        $listAnonymou = $this->where(function($query) use ($search){
+        $listDenunciationIdentification = $this->where(function($query) use ($search){
             if(isset($search['category'])){
                 $query->where('category', $search['category']);
             }
@@ -40,6 +46,6 @@ class DenunciationAnonymou extends Model
             }
         })
         ->paginate($totalPage);
-        return $listAnonymou;
+        return $listDenunciationIdentification;
     }
 }
