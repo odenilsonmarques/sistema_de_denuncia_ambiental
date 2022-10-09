@@ -20,18 +20,38 @@
                 </button>
                 <nav class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('homePage')}}">Início</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Lançamentos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Lançar</a>
-                        </li>
+                        @if(Auth::user())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('homePage')}}">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Lançamentos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Lançar</a>
+                            </li>
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                    <x-responsive-nav-link class="nav-link" :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                        {{ __('Sair') }}
+                                    </x-responsive-nav-link>
+                                </form>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('login')}}">Entrar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('register')}}">Criar conta</a>
+                            </li>
+                            
+                        @endif
                     </ul>
                 </nav>
             </div>

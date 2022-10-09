@@ -10,23 +10,15 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\DenunciationIdentificationController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+require __DIR__.'/auth.php';
+
+
 Route::get('/', [HomeController::class,'home'])->name('homePage');
 
 Route::get('/typeDenunciation',[ChoiceController::class,'choice'])->name('typeDenunciation.choice');
 
 Route::get('/denunciation',[DenunciationAnonymouController::class,'add'])->name('denunciation.add');
 Route::post('/denunciation/create',[DenunciationAnonymouController::class,'create'])->name('denunciation.create');
-
 
 
 //route for display messsage with success
@@ -40,13 +32,12 @@ Route::get('/denunciation/details/{id}',[DetailController::class,'details'])->na
 Route::get('/denunciation/{id}/edit',[DenunciationAnonymouController::class,'edit'])->name('denunciation.edit');
 Route::put('/denunciation/{id}',[DenunciationAnonymouController::class,'editAction'])->name('denunciation.editAction');
 // Route::get('/', function () {
-//     return view('welcome');
+// return view('welcome');
 // });
 
 Route::get('/denunciation/listPdf',[PdfController::class,'list'])->name('denunciation.listPdf');
 
 Route::any('/search',[FilterController::class,'filter'])->name('search.filter');
-
 
 
 //routes for denunciation with identification
@@ -63,5 +54,4 @@ Route::get('/denunciation/identitification/{id}/edit',[DenunciationIdentificatio
 Route::put('/denunciation/identitification/{id}',[DenunciationIdentificationController::class,'editAction'])->name('identification.editAction');
 
 Route::get('/denunciation/identitification/listPdf',[PdfController::class,'listPdfIdentification'])->name('identification.listPdfIdentification');
-
 
