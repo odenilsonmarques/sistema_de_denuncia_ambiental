@@ -29,6 +29,27 @@ body
     color: #064635;
     font-weight: bold;
 }
+
+.inforHome {
+    /* border:1px solid red; */
+    text-align:center;
+    margin-top: 50px;
+}
+
+.inforHome img{
+    width: 160px;
+    height: 140px;
+}
+
+.inforHome h1{
+    font-size: 20px;
+}
+
+.inforHome h2{
+    font-size: 18px;
+}
+
+
 button a
 {
     text-decoration:none;
