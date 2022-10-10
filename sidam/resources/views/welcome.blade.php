@@ -6,19 +6,16 @@
         <div class="row">
             <div class="col-lg-12 inforHome">
                 <img src="{{asset('assets/img/brazao1.png')}}">
-                <h1>PREFEITURA MUNICIPAL DE SÃO JOSÉ DE RIBAMAR</h1>
-                <h2>SECRETARIA MUNICIPAL DO AMBIENTE - SEMAM</h2><hr>
+                <h1>Prefeitura Municipal de São José de Ribamar</h1>
+                <h2>Secretaria Municipal do Meio Ambiente</h2>
             </div>
         </div>
 
 
-        <div class="row">
-            <div class="col-sm-6 text-center mt-5" style="border:1px solid red">
-                <a href="{{route('typeDenunciation.choice')}}">Denunciar</a>
-                
-            </div>
-            <div class="col-sm-6 text-center mt-5"  style="border:1px solid red">
-                Acompanhar Denuncia
+        <div class="row selectionUser mt-5">
+            <div class="col-sm-12 text-center">
+                <button type="button" class="btn btn-success btn-lg"><a href="{{route('typeDenunciation.choice')}}">Realizar Denúncia</a></button>          
+                <button type="button" class="btn btn-primary btn-lg"><a href="{{route('login')}}">Acompanhar Denúncia</a></button>
             </div>
         </div>
     </div>

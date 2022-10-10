@@ -11,7 +11,7 @@ body
 }
 .navbar a.navbar-brand:hover
 {
-    color: #6c63ff;
+    color: #fff;
 }
 .navbar-expand-sm .navbar-nav > li > a {
     font-size: 16px;
@@ -22,7 +22,7 @@ body
     color:  #FEFFDE;
 }
 .navbar-expand-sm .navbar-nav .nav-link:hover{
-    color: #6c63ff;
+    color: #fff;
     text-decoration: underline;
 }
 .dropdown-menu .dropdown-item{
@@ -37,8 +37,8 @@ body
 }
 
 .inforHome img{
-    width: 160px;
-    height: 140px;
+    width: 150px;
+    height: 130px;
 }
 
 .inforHome h1{
@@ -48,6 +48,21 @@ body
 .inforHome h2{
     font-size: 18px;
 }
+
+.selectionUser a:hover{
+    color: #fff;
+}
+
+.question{
+    margin-top: 70px;
+}
+
+.question button{
+    margin-right: 20px;
+}
+
+
+
 
 
 button a
@@ -138,8 +153,9 @@ tr.lineDark
 
 span
 {
-    color: #6c63ff;
+    color: #3D3C42;
     font-weight: bold;
+    font-size:13px;
 }
 
 /* css padão para aplicação do efeito de transação */

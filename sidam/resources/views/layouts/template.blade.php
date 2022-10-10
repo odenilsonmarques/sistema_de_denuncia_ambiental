@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="mb-5">
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#495464;">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#3D3C42;">
             <div class="container">
                 <a class="navbar-brand" href="{{route('homePage')}}">
                     Denuncia Ambiental
@@ -64,7 +64,7 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col-sm-12 text-center">
-                    <span>&copy 2022 by 2ps.com</span>
+                    <span>copyright &copy 2022 todos os direitos reservados</span>
                 </div>
             </div>
         </div>
