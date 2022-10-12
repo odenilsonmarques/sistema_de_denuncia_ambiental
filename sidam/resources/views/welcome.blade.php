@@ -10,8 +10,6 @@
                 <h2>Secretaria Municipal do Meio Ambiente</h2>
             </div>
         </div>
-
-
         <div class="row selectionUser mt-5">
             <div class="col-sm-12 text-center">
                 <button type="button" class="btn btn-success btn-lg"><a href="{{route('typeDenunciation.choice')}}">Realizar Denúncia</a></button>          

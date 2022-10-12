@@ -25,13 +25,13 @@
                                 <a class="nav-link" href="{{route('homePage')}}">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Dashboard</a>
+                                <a class="nav-link" href="#">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Lançamentos</a>
+                                <a class="nav-link" href="#">Lançamentos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Lançar</a>
+                                <a class="nav-link" href="#">Lançar</a>
                             </li>
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
