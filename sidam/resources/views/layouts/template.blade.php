@@ -50,7 +50,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('register')}}">Criar conta</a>
                             </li>
-                            
                         @endif
                     </ul>
                 </nav>

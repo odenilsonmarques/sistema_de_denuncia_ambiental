@@ -44,7 +44,7 @@ class User extends Authenticatable
     ];
 
     //metodo para relacioinar um usuario com uma ou mais Denunciation_with_identification
-    public function Denunciation_with_identifications() 
+    public function denunciation_with_identifications() 
     {
         return $this->hasmany(Denunciation_with_identification::class);
     }

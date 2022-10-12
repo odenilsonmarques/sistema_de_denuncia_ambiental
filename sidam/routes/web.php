@@ -9,11 +9,14 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\DenunciationIdentificationController;
+use App\Http\Controllers\DashboardUserController;
 
 require __DIR__.'/auth.php';
 
 
 Route::get('/', [HomeController::class,'home'])->name('homePage');
+
+Route::get('/dashboard',[DashboardUserController::class,'dash'])->name('dashboard.dash')->middleware('auth');
 
 Route::get('/typeDenunciation',[ChoiceController::class,'choice'])->name('typeDenunciation.choice');
 
