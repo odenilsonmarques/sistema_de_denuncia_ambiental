@@ -18,11 +18,11 @@ class DenunciationIdentificationController extends Controller
      }
      public function create(Request $request)
      {
-        //usando essa forma de salvar, pois vou precisar pegar o id do usuario 
-        $user = Auth::user()->id;
-        $denunciation = new DenunciationIdentificationController;
+        // usando essa forma de salvar, pois vou precisar pegar o id do usuario 
+        $user = Auth::id();
+        $denunciation = new Denunciation_with_identification;
         $denunciation->category = $request->category;
-        $denunciation->district = $request->district;
+        $denunciation->distric = $request->distric;
         $denunciation->road = $request->road;
         $denunciation->number = $request->number;
         $denunciation->reference_point = $request->reference_point;
@@ -34,22 +34,25 @@ class DenunciationIdentificationController extends Controller
         $denunciation->received = $request->received;
         $denunciation->description_status = $request->description_status;
         $denunciation->user_id = $user;
-        
-        // $data = $request-> all();
-        //  if($request->annex_one)
-        //  {
-        //      $data['annex_one'] = $request->annex_one->store('/img');
-        //  }
-        //  if($request->annex_two)
-        //  {
-        //      $data['annex_two'] = $request->annex_two->store('/img');
-        //  }
-        //  if($request->annex_three)
-        //  {
-        //      $data['annex_three'] = $request->annex_three->store('/img');
-        //  }
-        $denunciation->save();
-        return redirect()->route('homePage');
+
+        $data = $request->all();
+
+         if($request->annex_one)
+         {
+             $denunciation['annex_one'] = $request->annex_one->store('/img');
+         }
+         if($request->annex_two)
+         {
+             $denunciation['annex_two'] = $request->annex_two->store('/img');
+         }
+         if($request->annex_three)
+         {
+             $denunciation['annex_three'] = $request->annex_three->store('/img');
+         }
+        $denunciation->save($data);
+        return redirect()->route('dashboard.dash');
+
+       
      }
 
 

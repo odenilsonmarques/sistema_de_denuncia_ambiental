@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title','cadastro anonimo')
+@section('title','cadastro')
 
 @section('content')
 
