@@ -24,4 +24,11 @@ class FilterController extends Controller
         $denunciationIdentifications = $denunciationIdentification->search($dataForm, $this->totalPage);
         return view('denunciationIdentification.list', compact('denunciationIdentifications','dataForm'));
     }
+
+    public function filterDenunciation(Request $request, Denunciation_with_identification $denunciationIdentificationUser){
+
+        $dataForm = $request->except('_token');//não exibindo o token sa requisição
+        $denunciations = $denunciationIdentificationUser->searchByUser($dataForm, $this->totalPage);
+        return view('dashboard.listDenunciationUser', compact('denunciations','dataForm'));
+    }
 }

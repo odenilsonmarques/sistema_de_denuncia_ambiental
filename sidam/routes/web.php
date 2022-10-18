@@ -18,6 +18,15 @@ Route::get('/', [HomeController::class,'home'])->name('homePage');
 
 Route::get('/dashboard',[DashboardUserController::class,'dash'])->name('dashboard.dash')->middleware('auth');
 
+Route::get('/listDenunciationUser',[DashboardUserController::class,'list'])->name('listDenunciations.list')->middleware('auth');
+
+Route::any('search/user',[FilterController::class,'filterDenunciation'])->name('search.filterDenunciation')->middleware('auth');
+
+
+
+
+
+
 Route::get('/typeDenunciation',[ChoiceController::class,'choice'])->name('typeDenunciation.choice');
 
 Route::get('/denunciation',[DenunciationAnonymouController::class,'add'])->name('denunciation.add');
