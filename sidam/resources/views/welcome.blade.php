@@ -12,7 +12,7 @@
         </div>
         <div class="row selectionUser mt-5">
             <div class="col-sm-12 text-center">
-                <button type="button" class="btn btn-success btn-lg"><a href="{{route('typeDenunciation.choice')}}">Realizar Denúncia</a></button>          
+                <button type="button" class="btn btn-success btn-lg"><a href="{{route('type.complaint.choice')}}">Realizar Denúncia</a></button>          
                 <button type="button" class="btn btn-primary btn-lg"><a href="{{route('login')}}">Acompanhar Denúncia</a></button>
             </div>
         </div>

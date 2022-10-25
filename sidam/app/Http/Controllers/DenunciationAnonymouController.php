@@ -13,7 +13,7 @@ class DenunciationAnonymouController extends Controller
      //exibe página de cadastro de denúncia anônima
      public function add()
      {
-         return view('denunciation.add');
+         return view('complaint_anonymou.add');
      }
      public function create(StoreDenunciationAnonymousFromRequest $request)
      {

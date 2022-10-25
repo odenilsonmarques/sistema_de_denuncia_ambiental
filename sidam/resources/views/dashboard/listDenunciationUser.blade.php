@@ -68,10 +68,18 @@
                                             </svg>
                                         </a>
                                     </td>
+                                    <td >
+                                        <a href="{{route('denunciation.detailsIdentification',$denunciationUser->id)}}" class="btn btn-primary btn-sm" data-bs-toggle="modal"  data-bs-target="#exampleModal">Modal</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    
+
+
+
+
                     <div class="justify-content-center pagination">
                         @if(isset($dataForm))
                             {{$denunciations->appends($dataForm)->links('pagination::bootstrap-4')}}
@@ -82,5 +90,39 @@
                 </div>
             </div> 
         </div>
+
+       
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-3">
+                        <ul class="">
+                            <li class="list-group-item list-group-item-dark" aria-current="true">Categoria</li>
+                            <li  class="list-group-item">{{$data->id}}</li>
+                            
+                        </ul>
+                    </div>
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+
+
+
+
+
     </div>
 @endsection

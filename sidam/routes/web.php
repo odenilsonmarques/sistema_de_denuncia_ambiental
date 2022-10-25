@@ -26,17 +26,21 @@ Route::any('search/user',[FilterController::class,'filterDenunciation'])->name('
 
 
 
-
-Route::get('/typeDenunciation',[ChoiceController::class,'choice'])->name('typeDenunciation.choice');
-
-Route::get('/denunciation',[DenunciationAnonymouController::class,'add'])->name('denunciation.add');
-Route::post('/denunciation/create',[DenunciationAnonymouController::class,'create'])->name('denunciation.create');
+Route::get('/type/complaint',[ChoiceController::class,'choice'])->name('type.complaint.choice');
 
 
-//route for display messsage with success
-Route::get('/denunciation/message',[MessageController::class,'msg'])->name('denunciation.msg');
 
-//somente adm podem ver
+
+
+
+//ROTAs PARA REFERENTE A DENUNCIAS ANONIMAS
+
+Route::get('/complaint/anonymou',[DenunciationAnonymouController::class,'add'])->name('complaint.anonymou.add');
+Route::post('/complaint/anonymou/create',[DenunciationAnonymouController::class,'create'])->name('complaint.anonymou.create');
+
+Route::get('/complaint/message',[MessageController::class,'msg'])->name('complaint.message.msg');
+
+//CONTINUAR A ORGANIZAÇÃO DAQUI
 Route::get('/denunciation/list',[DenunciationAnonymouController::class,'list'])->name('denunciation.list');
 
 Route::get('/denunciation/details/{id}',[DetailController::class,'details'])->name('denunciation.details');

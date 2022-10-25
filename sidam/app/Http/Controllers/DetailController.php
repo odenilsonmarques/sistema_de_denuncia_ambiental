@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Denunciation_anonymou;
 use App\Models\Denunciation_with_identification;
 
+
 class DetailController extends Controller
 {
     //exibe os detalhes de cada denuncia
