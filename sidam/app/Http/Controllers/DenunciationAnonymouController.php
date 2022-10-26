@@ -32,14 +32,14 @@ class DenunciationAnonymouController extends Controller
          }
          Denunciation_anonymou::create($data);
  
-         return redirect()->route('denunciation.msg');
+         return redirect()->route('complaint.message.msg');
      }
-     //exibe de denúncia anônima
+     //exibe lista de  denúncias anônimas
      public function list(Denunciation_anonymou $denunciationAnonymou)//passando o objeto, mas poderia ser de outra forma. Usando esse recurso pq vou precisar filtar 
      {
          $denunciationAnonymous = Denunciation_anonymou::paginate($this->totalPage);
          // dd($listAnonymous);
-         return view('denunciation.list',compact('denunciationAnonymous'));
+         return view('complaint_anonymou.list',compact('denunciationAnonymous'));
      }
  
      //exibe form de edição da denuncia
@@ -49,7 +49,7 @@ class DenunciationAnonymouController extends Controller
          $typeStatus = ['Em Análise', 'Deferida', 'Indeferida'];
          $data = Denunciation_anonymou::find($id);
          if($data){
-             return view('denunciation.edit',compact('data','typeStatus'));
+             return view('complaint_anonymou.edit',compact('data','typeStatus'));
          }else{
              return redirect()->back();
          }
@@ -60,7 +60,7 @@ class DenunciationAnonymouController extends Controller
          if($data){
              $denunciation = $request->only('received', 'description_status');
              $data -> update($denunciation);
-             return redirect()->route('denunciation.details',$id)
+             return redirect()->route('complaint.anonymou.details',$id)
              // return view('denunciation.details',['data' => $data]);
              ->with('messageEd', 'Statud alterado com sucesso!');
          }else{

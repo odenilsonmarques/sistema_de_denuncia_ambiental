@@ -14,7 +14,7 @@ class FilterController extends Controller
     {
         $dataForm = $request->except('_token');//não exibindo o token sa requisição
         $denunciationAnonymous = $denunciationAnonymou->search($dataForm, $this->totalPage);
-        return view('denunciation.list', compact('denunciationAnonymous','dataForm'));
+        return view('complaint_anonymou.list', compact('denunciationAnonymous','dataForm'));
     }
 
     //criar meto de filtrage_denunciation_identification 

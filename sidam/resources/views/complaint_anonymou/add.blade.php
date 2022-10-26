@@ -103,7 +103,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6 mt-4">
-                                <button class="btn btn-danger"><a href="{{route('type.complaint.choice')}}">CANCELAR </a></button>
+                                <button class="btn btn-danger"><a href="{{route('complaint.type.choice')}}">CANCELAR </a></button>
                                 <button type="submit" class="btn btn-success">CADASTRAR</button>
                             </div>
                         </div>

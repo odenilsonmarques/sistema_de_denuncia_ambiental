@@ -14,7 +14,7 @@ class DetailController extends Controller
         $data = Denunciation_anonymou::find($id);
         if($data)
         {
-            return view('denunciation.details',['data' => $data]);
+            return view('complaint_anonymou.details',['data' => $data]);
         }else{
             return redirect()->back();
         }

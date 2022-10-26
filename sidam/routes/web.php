@@ -26,34 +26,23 @@ Route::any('search/user',[FilterController::class,'filterDenunciation'])->name('
 
 
 
-Route::get('/type/complaint',[ChoiceController::class,'choice'])->name('type.complaint.choice');
-
-
-
-
-
+Route::get('/complaint/type',[ChoiceController::class,'choice'])->name('complaint.type.choice');
+Route::get('/complaint/message',[MessageController::class,'msg'])->name('complaint.message.msg');
 
 //ROTAs PARA REFERENTE A DENUNCIAS ANONIMAS
-
 Route::get('/complaint/anonymou',[DenunciationAnonymouController::class,'add'])->name('complaint.anonymou.add');
 Route::post('/complaint/anonymou/create',[DenunciationAnonymouController::class,'create'])->name('complaint.anonymou.create');
 
-Route::get('/complaint/message',[MessageController::class,'msg'])->name('complaint.message.msg');
+Route::get('/complaint/anonymou/list',[DenunciationAnonymouController::class,'list'])->name('complaint.anonymou.list');
+Route::get('/complaint/anonymou/details/{id}',[DetailController::class,'details'])->name('complaint.anonymou.details');
 
-//CONTINUAR A ORGANIZAÇÃO DAQUI
-Route::get('/denunciation/list',[DenunciationAnonymouController::class,'list'])->name('denunciation.list');
+Route::get('/complaint/anonymou/{id}/edit',[DenunciationAnonymouController::class,'edit'])->name('complaint.anonymou.edit');
+Route::put('/complaint/anonymou/{id}',[DenunciationAnonymouController::class,'editAction'])->name('complaint.anonymou.editAction');
 
-Route::get('/denunciation/details/{id}',[DetailController::class,'details'])->name('denunciation.details');
+Route::any('complaint/anonymou/search',[FilterController::class,'filter'])->name('complaint.anonymou.filter');
+Route::get('/complaint/anonymou/listPdf',[PdfController::class,'list'])->name('complaint.anonymou.listPdf');
 
-Route::get('/denunciation/{id}/edit',[DenunciationAnonymouController::class,'edit'])->name('denunciation.edit');
-Route::put('/denunciation/{id}',[DenunciationAnonymouController::class,'editAction'])->name('denunciation.editAction');
-// Route::get('/', function () {
-// return view('welcome');
-// });
 
-Route::get('/denunciation/listPdf',[PdfController::class,'list'])->name('denunciation.listPdf');
-
-Route::any('/search',[FilterController::class,'filter'])->name('search.filter');
 
 
 //routes for denunciation with identification
