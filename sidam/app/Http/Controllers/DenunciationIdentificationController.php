@@ -96,7 +96,7 @@ class DenunciationIdentificationController extends Controller
         if($data){
             $denunciationIdentification = $request->only('received', 'description_status');
             $data -> update($denunciationIdentification);
-            return redirect()->route('denunciation.detailsIdentification',$id)
+            return redirect()->route('complaint.identification.detailsIdentification',$id)
             ->with('messageEd', 'Statud alterado com sucesso!');
         }
      }

@@ -14,19 +14,19 @@ class DashboardUserController extends Controller
     //
     public function dash()
     {
-        $allsDenunciationUser = Auth::user()->denunciation_with_identifications()->count();
+        $allUserComplaints = Auth::user()->denunciation_with_identifications()->count();
 
-        $allsDenunciationInAnalysis = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Em Analise')->count();
+        $allComplaintsInAnalysis = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Em Analise')->count();
 
-        $allsDenunciationDeferred = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Deferida')->count();
+        $allComplaintsAccepted = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Deferida')->count();
 
-        $allsDenunciationRejected = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Indeferida')->count();
+        $allComplaintsDismissed = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Indeferida')->count();
 
         return view('dashboard.dashboardUser',[
-            'allsDenunciationUser' => $allsDenunciationUser,
-            'allsDenunciationInAnalysis' => $allsDenunciationInAnalysis,
-            'allsDenunciationDeferred' => $allsDenunciationDeferred,
-            'allsDenunciationRejected' => $allsDenunciationRejected,
+            'allUserComplaints' => $allUserComplaints,
+            'allComplaintsInAnalysis' => $allComplaintsInAnalysis,
+            'allComplaintsAccepted' => $allComplaintsAccepted,
+            'allComplaintsDismissed' => $allComplaintsDismissed,
         ]);
     }
 
