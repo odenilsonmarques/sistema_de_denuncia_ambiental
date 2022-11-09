@@ -22,7 +22,16 @@ Route::get('/dashboard',[DashboardUserController::class,'dash'])->name('dashboar
 //Iniciar a paritr daqui
 Route::get('/listDenunciationUser',[DashboardUserController::class,'list'])->name('listDenunciations.list')->middleware('auth');
 
+Route::get('/listDenunciationUser/modal/{id}',[DashboardUserController::class,'displayModal'])->name('listDenunciations.modal.displayModal')->middleware('auth');
+
+// Route::get('/complaint/identification/modal/{id}',[DetailController::class,'displayModal'])->name('complaint.identification.modal');
+
+
+
+
 Route::any('search/user',[FilterController::class,'filterDenunciation'])->name('search.filterDenunciation')->middleware('auth');
+
+
 
 
 
@@ -30,7 +39,6 @@ Route::any('search/user',[FilterController::class,'filterDenunciation'])->name('
 
 Route::get('/complaint/type',[ChoiceController::class,'choice'])->name('complaint.type.choice');
 Route::get('/complaint/message',[MessageController::class,'msg'])->name('complaint.message.msg');
-
 
 //Routes for complaints anonymous
 Route::get('/complaint/anonymou',[DenunciationAnonymouController::class,'add'])->name('complaint.anonymou.add');

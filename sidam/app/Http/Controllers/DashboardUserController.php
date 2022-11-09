@@ -36,4 +36,14 @@ class DashboardUserController extends Controller
          return view('dashboard.listDenunciationUser',compact('denunciations'));
      }
 
+     //criar metodo para tentasr exibir informações individuais em cada modal
+     public function displayModal(Request $request, $id)
+     {
+        $data = Denunciation_with_identification::find($id);
+        if($data){
+            return view('dashboard.listDenunciationUser',['data' => $data]);
+        }else{
+            return redirect()->back();
+        }
+     }
 }

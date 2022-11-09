@@ -29,4 +29,5 @@ class DetailController extends Controller
             return redirect()->back();
         }
     }
+
 }
