@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-8 mt-5">
                 <div class="input-group">
-                    <form action="{{route('search.filter')}}" method="POST" class="form-horizontal">
+                    <form action="{{route('complaint.anonymou.filter')}}" method="POST" class="form-horizontal">
                         @csrf
                         <div class="input-group mb-3">
                             <select name="category" id="category" class="form-select  inputSearch">
@@ -36,7 +36,7 @@
             </div>
             <div class="col-lg-4 mt-5">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
-                    <a href="{{route('denunciation.listPdf')}}" target="_blank" class="btn btn-primary" role="button">
+                    <a href="{{route('complaint.anonymou.listPdf')}}" target="_blank" class="btn btn-primary" role="button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
                             <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
                             <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
@@ -73,7 +73,7 @@
                                     <td>{{$denunciationAnonymou->received}}</td>
                                     <td><img src="{{asset('storage/'.$denunciationAnonymou->annex_one)}}" alt="produto" width="60" height="60" ></td>
                                     <td>
-                                        <a href="{{route('denunciation.details', $denunciationAnonymou->id)}}" class="btn btn-primary btn-sm">
+                                        <a href="{{route('complaint.anonymou.details', $denunciationAnonymou->id)}}" class="btn btn-primary btn-sm">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                             </svg>

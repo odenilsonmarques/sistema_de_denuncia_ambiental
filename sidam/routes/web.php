@@ -9,59 +9,62 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\DenunciationIdentificationController;
+use App\Http\Controllers\DashboardUserController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+require __DIR__.'/auth.php';
+
+//Route for page home
 Route::get('/', [HomeController::class,'home'])->name('homePage');
 
-Route::get('/typeDenunciation',[ChoiceController::class,'choice'])->name('typeDenunciation.choice');
+//Routes for user logged
+Route::get('/dashboard',[DashboardUserController::class,'dash'])->name('dashboard.dash')->middleware('auth');
 
-Route::get('/denunciation',[DenunciationAnonymouController::class,'add'])->name('denunciation.add');
-Route::post('/denunciation/create',[DenunciationAnonymouController::class,'create'])->name('denunciation.create');
+//Iniciar a paritr daqui
+Route::get('/listDenunciationUser',[DashboardUserController::class,'list'])->name('listDenunciations.list')->middleware('auth');
 
+Route::get('/listDenunciationUser/modal/{id}',[DashboardUserController::class,'displayModal'])->name('listDenunciations.modal.displayModal')->middleware('auth');
 
-
-//route for display messsage with success
-Route::get('/denunciation/message',[MessageController::class,'msg'])->name('denunciation.msg');
-
-//somente adm podem ver
-Route::get('/denunciation/list',[DenunciationAnonymouController::class,'list'])->name('denunciation.list');
-
-Route::get('/denunciation/details/{id}',[DetailController::class,'details'])->name('denunciation.details');
-
-Route::get('/denunciation/{id}/edit',[DenunciationAnonymouController::class,'edit'])->name('denunciation.edit');
-Route::put('/denunciation/{id}',[DenunciationAnonymouController::class,'editAction'])->name('denunciation.editAction');
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/denunciation/listPdf',[PdfController::class,'list'])->name('denunciation.listPdf');
-
-Route::any('/search',[FilterController::class,'filter'])->name('search.filter');
+// Route::get('/complaint/identification/modal/{id}',[DetailController::class,'displayModal'])->name('complaint.identification.modal');
 
 
 
-//routes for denunciation with identification
-Route::get('/denunciation/identification',[DenunciationIdentificationController::class,'add'])->name('denunciation.identification.add');
-Route::post('/denunciation/identification/create',[DenunciationIdentificationController::class,'create'])->name('denunciation.identification.create');
 
-Route::get('/denunciation/identification/list',[DenunciationIdentificationController::class,'list'])->name('denunciation.identification.list');
+Route::any('search/user',[FilterController::class,'filterDenunciation'])->name('search.filterDenunciation')->middleware('auth');
 
-Route::any('search/identification',[FilterController::class,'filterIdentification'])->name('search.identification');
 
-Route::get('/denunciation/identification/details/{id}',[DetailController::class,'detailsIdentification'])->name('denunciation.detailsIdentification');
 
-Route::get('/denunciation/identitification/{id}/edit',[DenunciationIdentificationController::class,'edit'])->name('identification.edit');
-Route::put('/denunciation/identitification/{id}',[DenunciationIdentificationController::class,'editAction'])->name('identification.editAction');
 
-Route::get('/denunciation/identitification/listPdf',[PdfController::class,'listPdfIdentification'])->name('identification.listPdfIdentification');
+
+
+
+Route::get('/complaint/type',[ChoiceController::class,'choice'])->name('complaint.type.choice');
+Route::get('/complaint/message',[MessageController::class,'msg'])->name('complaint.message.msg');
+
+//Routes for complaints anonymous
+Route::get('/complaint/anonymou',[DenunciationAnonymouController::class,'add'])->name('complaint.anonymou.add');
+Route::post('/complaint/anonymou/create',[DenunciationAnonymouController::class,'create'])->name('complaint.anonymou.create');
+
+Route::get('/complaint/anonymou/list',[DenunciationAnonymouController::class,'list'])->name('complaint.anonymou.list');
+Route::get('/complaint/anonymou/details/{id}',[DetailController::class,'details'])->name('complaint.anonymou.details');
+
+Route::get('/complaint/anonymou/{id}/edit',[DenunciationAnonymouController::class,'edit'])->name('complaint.anonymou.edit');
+Route::put('/complaint/anonymou/{id}',[DenunciationAnonymouController::class,'editAction'])->name('complaint.anonymou.editAction');
+
+Route::any('/complaint/anonymou/search',[FilterController::class,'filter'])->name('complaint.anonymou.filter');
+Route::get('/complaint/anonymou/listPdf',[PdfController::class,'list'])->name('complaint.anonymou.listPdf');
+
+//Routes for complaint with identification
+Route::get('/complaint/identification',[DenunciationIdentificationController::class,'add'])->name('complaint.identification.add');
+Route::post('/complaint/identification/create',[DenunciationIdentificationController::class,'create'])->name('complaint.identification.create');
+
+Route::get('/complaint/identification/list',[DenunciationIdentificationController::class,'list'])->name('complaint.identification.list');
+Route::get('/complaint/identification/details/{id}',[DetailController::class,'detailsIdentification'])->name('complaint.identification.detailsIdentification');
+
+Route::get('/complaint/identitification/{id}/edit',[DenunciationIdentificationController::class,'edit'])->name('complaint.identification.edit');
+Route::put('/complaint/identitification/{id}',[DenunciationIdentificationController::class,'editAction'])->name('complaint.identification.editAction');
+
+Route::any('/complaint/identification/search',[FilterController::class,'filterIdentification'])->name('complaint.identification.filterIdentification');
+Route::get('/complaint/identitification/listPdf',[PdfController::class,'listPdfIdentification'])->name('complaint.identitification.listPdfIdentification');
+
 
 

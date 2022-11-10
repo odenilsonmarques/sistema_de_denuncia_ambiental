@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Denunciation_with_identification;
+use Illuminate\Support\Facades\Auth;
+
 
 class Denunciation_with_identification extends Model
 {
@@ -45,6 +48,25 @@ class Denunciation_with_identification extends Model
                 $query->where('received', $search['received']);
             }
         })
+        ->paginate($totalPage);
+        return $listDenunciationIdentification;
+    }
+
+    //logica para buscar os dados na filtragem
+    public function searchByUser(Array $search, $totalPage)
+    {
+        $listDenunciationIdentification = $this->where(function($query) use ($search){
+            if(isset($search['category'])){
+                $query->where('category', $search['category']);
+            }
+            if(isset($search['distric'])){
+                $query->where('distric', $search['distric']);
+            }
+            if(isset($search['received'])){
+                $query->where('received', $search['received']);
+            }
+        })
+        ->where('user_id', Auth()->user()->id)
         ->paginate($totalPage);
         return $listDenunciationIdentification;
     }

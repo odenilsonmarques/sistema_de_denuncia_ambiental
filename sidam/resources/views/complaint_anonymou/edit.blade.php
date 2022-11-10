@@ -25,7 +25,7 @@
         
         <div class="col-sm-9 mt-5 ">
             <div class="card">
-                <form action="{{route('denunciation.editAction', $data->id)}}" method="POST">
+                <form action="{{route('complaint.anonymou.editAction', $data->id)}}" method="POST">
                     @csrf<!--csrf toquem de segurnça padrao do laravel para envio de requisao-->
                     @method('PUT')<!--essa directiva é usada por causa do verdo put declarado na rota-->
                     <div class="card-header">Status da denuncia</div>
@@ -58,7 +58,7 @@
                         
                         <div class="row">
                             <div class="col-sm-6 mt-4">
-                                <button class="btn btn-danger"><a href="{{route('denunciation.list')}}">CANCELAR </a></button>
+                                <button class="btn btn-danger"><a href="{{route('complaint.anonymou.list')}}">CANCELAR </a></button>
                                 <button type="submit" class="btn btn-success">SALVAR</button>
                             </div>
                         </div>

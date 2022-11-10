@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Denunciation_anonymou;
 use App\Models\Denunciation_with_identification;
 
+
 class DetailController extends Controller
 {
     //exibe os detalhes de cada denuncia
@@ -13,7 +14,7 @@ class DetailController extends Controller
         $data = Denunciation_anonymou::find($id);
         if($data)
         {
-            return view('denunciation.details',['data' => $data]);
+            return view('complaint_anonymou.details',['data' => $data]);
         }else{
             return redirect()->back();
         }
@@ -28,4 +29,5 @@ class DetailController extends Controller
             return redirect()->back();
         }
     }
+
 }

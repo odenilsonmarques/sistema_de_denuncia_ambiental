@@ -8,7 +8,7 @@ class MessageController extends Controller
     //Exibe mensagem apos o cadastro da denúncia
     public function msg()
     {
-        return view('denunciation.msg');
+        return view('complaint_anonymou.msg');
     }
 
 }

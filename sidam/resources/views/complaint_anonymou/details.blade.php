@@ -71,8 +71,8 @@
                         <li class="list-group-item">{{date('d/m/Y',strtotime($data->updated_at))}}</li>
                      @else
                      @endif
-                        <button class="btn btn-danger btn-sm mt-3"><a href="{{route('denunciation.list')}}">CANCELAR</a></button>
-                        <a href="{{route('denunciation.edit',$data->id)}}" class="btn btn-primary btn-sm text-right mt-3">ALTERAR</a>
+                        <button class="btn btn-danger btn-sm mt-3"><a href="{{route('complaint.anonymou.list')}}">CANCELAR</a></button>
+                        <a href="{{route('complaint.anonymou.edit',$data->id)}}" class="btn btn-primary btn-sm text-right mt-3">ALTERAR</a>
                      
                 </ul>
 
