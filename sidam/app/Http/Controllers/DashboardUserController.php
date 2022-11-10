@@ -22,11 +22,15 @@ class DashboardUserController extends Controller
 
         $allComplaintsDismissed = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Indeferida')->count();
 
+        $allComplaintsReceived = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Recebida')->count();
+
         return view('dashboard.dashboardUser',[
             'allUserComplaints' => $allUserComplaints,
             'allComplaintsInAnalysis' => $allComplaintsInAnalysis,
             'allComplaintsAccepted' => $allComplaintsAccepted,
             'allComplaintsDismissed' => $allComplaintsDismissed,
+            'allComplaintsReceived' => $allComplaintsReceived,
+
         ]);
     }
 

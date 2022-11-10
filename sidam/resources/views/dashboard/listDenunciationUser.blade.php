@@ -45,7 +45,7 @@
                                 <th>Categoria</th>
                                 <th>Data</th>
                                 <th>Status</th>
-                                <th>Descricao</th>
+                                <th>Motivo</th>
                                 <th>Atualizado em</th>
                             </tr>
                         </thead>
@@ -56,8 +56,12 @@
                                     <td>{{ $denunciationUser->category}}</td>
                                     <td>{{date('d/m/Y',strtotime($denunciationUser->created_at))}}</td>
                                     <td>{{ $denunciationUser->received}}</td>
-                                    <td>{{ $denunciationUser->description_status}}</td>
-                                    <td>{{ $denunciationUser->updated_at }}</td> 
+                                    @if($denunciationUser->description_status)
+                                        <td>{{ $denunciationUser->description_status}}</td>
+                                    @else
+                                        <td>aguardando para análise ...</td>
+                                    @endif
+                                    <td>{{date('d/m/Y',strtotime($denunciationUser->updated_at))}}</td> 
                                 </tr>
                             @endforeach
                         </tbody>
