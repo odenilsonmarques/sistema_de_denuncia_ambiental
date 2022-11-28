@@ -50,4 +50,8 @@ class DashboardUserController extends Controller
             return redirect()->back();
         }
      }
+
+     public function admin(){
+        return view('dashboard.dashboardAdmin');
+     }
 }
