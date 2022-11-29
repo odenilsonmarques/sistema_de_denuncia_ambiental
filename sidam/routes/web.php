@@ -62,8 +62,7 @@ Route::get('/', [HomeController::class,'home'])->name('homePage');
     Route::get('/complaint/identitification/listPdf',[PdfController::class,'listPdfIdentification'])->name('complaint.identitification.listPdfIdentification');
 
 
-
-//route for acesss dashboard admin
-Route::middleware(['auth','admin'])->group(function(){
-    Route::get('/dashboard/admin',[DashboardAdminController::class,'admin'])->name('admin.dashboard');
-});
+// //route for acesss dashboard admin
+// Route::middleware(['auth','admin'])->group(function(){
+//     Route::get('/dashboard',[DashboardAdminController::class,'admin'])->name('admin.dashboard');
+// });

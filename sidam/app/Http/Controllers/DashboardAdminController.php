@@ -9,7 +9,12 @@ use App\Models\Denunciation_with_identification;
 
 class DashboardAdminController extends Controller
 {
-     public function admin(){
-        return view('dashboard.dashboardAdmin');
-     }
+   public function admin()
+    {
+      $allUserComplaintsTeste = Auth::user()->denunciation_with_identifications()->count();
+
+        return view('dashboard.dashboardUser',[
+            'allUserComplaintsTeste' => $allUserComplaintsTeste,
+        ]);
+    }
 }
