@@ -73,7 +73,7 @@ class DenunciationIdentificationController extends Controller
 
      public function list(Denunciation_with_identification $denunciationIdentification)
      {
-         $denunciationIdentifications = Denunciation_with_identification::paginate($this->totalPage);
+         $denunciationIdentifications = Denunciation_with_identification::orderBy('created_at','desc')->paginate($this->totalPage);
          // dd($denunciationIdentifications);
          return view('denunciationIdentification.list',compact('denunciationIdentifications'));
      }
