@@ -26,7 +26,7 @@ class DashboardUserController extends Controller
 
         $allComplaintsReceived = Auth::user()->denunciation_with_identifications()->where('received', '=', 'Recebida')->count();
 
-
+        //return all dados users admin
         $allComplaintsWithIdentifications = Denunciation_with_identification::all()->count();
 
         $allComplaintsAnonymos = Denunciation_anonymou::all()->count();
@@ -52,7 +52,7 @@ class DashboardUserController extends Controller
 
     public function list(Denunciation_with_identification $denunciationIdentificationUser)
      {
-         $denunciations = Auth()->user()->denunciation_with_identifications()->paginate($this->totalPage);
+         $denunciations = Auth()->user()->denunciation_with_identifications()->orderBy('created_at','desc')->paginate($this->totalPage);
          return view('dashboard.listDenunciationUser',compact('denunciations'));
      }
 

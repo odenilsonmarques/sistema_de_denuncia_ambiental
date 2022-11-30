@@ -37,7 +37,7 @@ class DenunciationAnonymouController extends Controller
      //exibe lista de  denúncias anônimas
      public function list(Denunciation_anonymou $denunciationAnonymou)//passando o objeto, mas poderia ser de outra forma. Usando esse recurso pq vou precisar filtar 
      {
-         $denunciationAnonymous = Denunciation_anonymou::paginate($this->totalPage);
+         $denunciationAnonymous = Denunciation_anonymou::orderBy('created_at','desc')->paginate($this->totalPage);
          // dd($listAnonymous);
          return view('complaint_anonymou.list',compact('denunciationAnonymous'));
      }
