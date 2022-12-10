@@ -28,7 +28,7 @@
                             </select>
                             <input type="text" name="distric" class="form-control inputSearch" placeholder="Bairro">
                             <div class="input-group-append ml-3">
-                              <button type="submit" class="btn btn-outline-secondary" style="background-color:#6c63ff;color:#fff" >Buscar</button>
+                              <button type="submit" class="btn btn-outline-secondary" >Buscar</button>
                             </div>
                         </div>
                     </form>
