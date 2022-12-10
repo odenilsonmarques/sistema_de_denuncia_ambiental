@@ -60,11 +60,6 @@ body
 .question button{
     margin-right: 20px;
 }
-
-
-
-
-
 button a
 {
     text-decoration:none;
@@ -207,4 +202,9 @@ span
  .list-group-item-dark{
     color:#495464;
     font-weight:bold;
+  }
+
+  .img-thumbnail:hover{
+    width: 236px;
+    height: 100px;
   }
