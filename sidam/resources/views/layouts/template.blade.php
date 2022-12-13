@@ -24,9 +24,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('dashboard.dash')}}">Dashboard</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{route('listDenunciations.list')}}">Minhas Denúncias</a>
-                                </li>
+                                </li> --}}
                                 {{-- @if(Auth::user()->is_admin == 1)
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('admin.dashboard')}}">Admin</a>
