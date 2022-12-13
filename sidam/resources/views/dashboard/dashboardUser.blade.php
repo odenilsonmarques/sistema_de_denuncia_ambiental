@@ -5,10 +5,14 @@
     @if(Auth::user()->is_admin != 1)
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 mt-5">
+                <div class="col-lg-6 mt-5">
                     <h1>Bem - vindo !</h1>
                     <h3>Olá, {{ Auth::user()->name }}</h3>
-                    <button type="button" class="btn btn-primary mt-4"><a href="{{route('complaint.identification.add')}}">Realizar Denúncia</a></button>
+                    <div class="mt-4">
+                        <button type="button" class="btn btn-primary"><a href="{{route('complaint.identification.add')}}">Realizar Denúncia</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="{{route('listDenunciations.list')}}">Minhas Denúncias</a></button>
+                    </div>
+                    
                 </div>
             </div>
             <div class="row mt-5">
