@@ -52,7 +52,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Denunciante</th>
                                 <th>Categoria</th>
                                 <th>Bairro</th>
                                 <th>Rua</th>
@@ -65,7 +65,7 @@
                         <tbody>
                             @foreach($denunciationIdentifications as $denunciationIdentification)
                                 <tr>
-                                    <td>{{ $denunciationIdentification->id}}</td>
+                                    <td>{{ $denunciationIdentification->user->name}}</td>
                                     <td>{{ $denunciationIdentification->category}}</td>
                                     <td>{{ $denunciationIdentification->distric}}</td>
                                     <td>{{ $denunciationIdentification->road}}</td>
