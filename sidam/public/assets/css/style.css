@@ -208,3 +208,11 @@ span
     width: 236px;
     height: 100px;
   }
+
+  button a{
+    color:#FFF;
+  }
+  button a:hover{
+    color:#BBBFCA;
+    text-decoration: underline;
+}
