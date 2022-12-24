@@ -24,7 +24,7 @@ Route::get('/', [HomeController::class,'home'])->name('homePage');
 
     Route::get('/listDenunciationUser',[DashboardUserController::class,'list'])->name('listDenunciations.list')->middleware('auth');
 
-    Route::get('/listDenunciationUser/modal/{id}',[DashboardUserController::class,'displayModal'])->name('listDenunciations.modal.displayModal')->middleware('auth');
+    // Route::get('/listDenunciationUser/modal/{id}',[DashboardUserController::class,'displayModal'])->name('listDenunciations.modal.displayModal')->middleware('auth');
 
     // Route::get('/complaint/identification/modal/{id}',[DetailController::class,'displayModal'])->name('complaint.identification.modal');
 
@@ -46,7 +46,7 @@ Route::get('/', [HomeController::class,'home'])->name('homePage');
     Route::put('/complaint/anonymou/{id}',[DenunciationAnonymouController::class,'editAction'])->name('complaint.anonymou.editAction');
 
     Route::any('/complaint/anonymou/search',[FilterController::class,'filter'])->name('complaint.anonymou.filter');
-    Route::get('/complaint/anonymou/listPdf',[PdfController::class,'list'])->name('complaint.anonymou.listPdf');
+    Route::get('/complaint/anonymou/listPdf',[PdfController::class,'listPdfAnonynous'])->name('complaint.anonymou.listPdf');
 
     //Routes for complaint with identification
     Route::get('/complaint/identification',[DenunciationIdentificationController::class,'add'])->name('complaint.identification.add');
@@ -59,8 +59,9 @@ Route::get('/', [HomeController::class,'home'])->name('homePage');
     Route::put('/complaint/identitification/{id}',[DenunciationIdentificationController::class,'editAction'])->name('complaint.identification.editAction');
 
     Route::any('/complaint/identification/search',[FilterController::class,'filterIdentification'])->name('complaint.identification.filterIdentification');
-    Route::get('/complaint/identitification/listPdf',[PdfController::class,'listPdfIdentification'])->name('complaint.identitification.listPdfIdentification');
+    Route::get('/complaint/identitification/listPdf',[PdfController::class,'listPdfIdentifications'])->name('complaint.identitification.listPdfIdentifications');
 
+    Route::get('/complaint/listPdf/{id}',[PdfController::class,'list'])->name('complait.listPdf');
 
 // //route for acesss dashboard admin
 // Route::middleware(['auth','admin'])->group(function(){
