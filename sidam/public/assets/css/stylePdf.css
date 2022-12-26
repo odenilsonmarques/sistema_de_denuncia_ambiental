@@ -16,3 +16,12 @@ thead
 {
     background-color: #BBBFCA;
 }
+
+h2{
+    background-color: #ccc;
+    padding:8px;
+    font-size: 18px;
+}
+p{
+    font-size:17px;
+}
