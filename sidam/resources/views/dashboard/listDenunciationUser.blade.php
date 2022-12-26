@@ -48,7 +48,7 @@
                                     <th>Status</th>
                                     <th>Motivo</th>
                                     <th>Atualizado em</th>
-                                    <th>ver</th>
+                                    <th>Detalhes</th>
                                 </tr>
                             </thead>
                             <tbody>
