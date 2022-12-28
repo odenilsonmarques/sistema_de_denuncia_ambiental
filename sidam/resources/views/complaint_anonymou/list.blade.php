@@ -2,6 +2,7 @@
 @section('title','Denuncias anônimas')
 
 @section('content')
+@if(Auth::user()->is_admin == 1)
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mt-5">
@@ -94,4 +95,10 @@
             </div> 
         </div>
     </div>
+@else
+    <div class="text-center">
+        <img src="{{asset('assets/img/404.svg')}}" class="rounde mt-5" alt="..." width="250" height="150">
+    </div>
+@endif
+
 @endsection

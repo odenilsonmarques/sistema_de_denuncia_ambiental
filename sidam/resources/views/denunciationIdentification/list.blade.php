@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('title','Denuncias com identificação')
-
 @section('content')
+@if(Auth::user()->is_admin == 1)
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mt-5">
@@ -28,7 +28,7 @@
                             </select>
                             <input type="text" name="distric" class="form-control inputSearch" placeholder="Bairro">
                             <div class="input-group-append ml-3">
-                              <button type="submit" class="btn btn-outline-secondary" >Buscar</button>
+                              <button type="submit" class="btn btn-outline-secondary">Buscar</button>
                             </div>
                         </div>
                     </form>
@@ -94,4 +94,9 @@
             </div> 
         </div>
     </div>
+@else
+    <div class="text-center">
+        <img src="{{asset('assets/img/404.svg')}}" class="rounde mt-5" alt="..." width="250" height="150">
+    </div>
+@endif
 @endsection
