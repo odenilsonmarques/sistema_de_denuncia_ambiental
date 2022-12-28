@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="{{'assets/css/stylePdf.css'}}">
 <div class="container">
     <div class="row">
@@ -34,4 +35,5 @@
         </div> 
     </div>
 </div>
+
 

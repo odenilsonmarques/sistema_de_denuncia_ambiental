@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('title','Inicio')
-
 @section('content')
+@if(Auth::user()->is_admin == 1)
     <div class="container">
         <div class="row">
             <h1 class="mt-5 text-center">Detalhes da denúncia</h1>
@@ -76,4 +76,9 @@
             </div>
         </div>
     </div>
+@else
+    <div class="text-center">
+        <img src="{{asset('assets/img/404.svg')}}" class="rounde mt-5" alt="..." width="250" height="150">
+    </div>
+@endif
 @endsection
